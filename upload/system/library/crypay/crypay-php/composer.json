@@ -12,17 +12,6 @@
   ],
   "homepage": "https://crypay.com",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "CryPay and contributors",
-      "homepage": "https://github.com/crypay/crypay-php/graphs/contributors"
-    },
-
-    {
-      "name": "",
-      "email": ""
-    }
-  ],
   "require": {
     "php": ">=7.3.0",
     "ext-curl": "*",
