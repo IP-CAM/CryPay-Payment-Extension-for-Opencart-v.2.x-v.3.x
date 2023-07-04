@@ -1,13 +1,13 @@
 ## Installation
-First and foremost, it is necessary to register for an account on crypay. To proceed with the installation and testing of the crypay WooCommerce payment module, please follow these simple steps:
+First and foremost, it is necessary to register for an account on crypay. To proceed with the installation and testing of the crypay OpenCart payment module, please follow these simple steps:
 
 Sign up for an account on crypay. You can use our main website at https://crypay.com/ for production purposes. However, if you wish to conduct testing, we provide a test environment at https://dev.crypay.com/. Please ensure you create an account on the test platform even if you already have one on our main website.
 
-The installation process for our WooCommerce payment module is straightforward. To ensure the crypay payment gateway functions correctly on your website, follow these two quick steps:
+The installation process for our OpenCart payment module is straightforward. To ensure the crypay payment gateway functions correctly on your website, follow these two quick steps:
 
 * Set up API credentials on crypay.
 
-* Install the crypay payment module for WooCommerce.
+* Install the crypay payment module for OpenCart.
 
 For testing purposes, it is important to generate separate API credentials on https://dev.crypay.com since the API credentials generated on https://crypay.com will not function in the test environment. To create a set of API credentials, log in to your crypay account. You can either complete the auto-setup wizard or access the API tab from the menu. Click on "Projects" and then click "+Add project."
 
