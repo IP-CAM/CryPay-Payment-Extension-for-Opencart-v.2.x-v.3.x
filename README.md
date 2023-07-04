@@ -14,7 +14,7 @@ For testing purposes, it is important to generate separate API credentials on ht
 ### For OpenCart version 3.*
 follow these steps to install and configure the crypay payment extension:
 
-1. Download the latest release of the crypay extension for OpenCart.
+1. <a href="https://github.com/ctsolutionsk/opencart-plugin/releases">Download</a> the latest release of the crypay extension for OpenCart.
 
 2. Go to "Extensions" » "Installer" in your OpenCart admin panel and upload the file "crypay-opencart.ocmod.zip".
 
