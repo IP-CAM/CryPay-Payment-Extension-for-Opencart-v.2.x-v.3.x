@@ -14,21 +14,26 @@ if [ -d  "${tmp_dir}" ]; then
   rm -rf "${tmp_dir}"
 fi
 
-rm -rf ${release_dir_name}-*.zip
+rm -rf  crypay-opencart2.ocmod.zip
+rm -rf  crypay-opencart2_3.ocmod.zip
+rm -rf  crypay-opencart3.ocmod.zip
 
 mkdir $tmp_dir
-rsync -a . ${tmp_dir}/${release_name}
+rsync -a ./opencart2-plugin ${tmp_dir}
+rsync -a ./opencart2.3-plugin ${tmp_dir}
+rsync -a ./opencart3-plugin ${tmp_dir}
 
-echo "Removing unnecessary files..."
-
-cd ${tmp_dir}/${release_name}
-rm -rf .git .github .gitignore .DS_Store .idea vendor .phpcs.xml tmp op-release.sh
-cd ../../
 
 echo "Compressing release folder..."
 
-cd $tmp_dir && zip -r "${release_dir_name}-$1.zip" ${release_name} && cd ..
-mv "${tmp_dir}/${release_dir_name}-$1.zip" .
+
+cd $tmp_dir/opencart2-plugin && zip -r "crypay-opencart2.ocmod.zip" upload && cd ..
+cd opencart2.3-plugin && zip -r "crypay-opencart2_3.ocmod.zip" upload && cd ..
+cd opencart3-plugin && zip -r "crypay-opencart3.ocmod.zip" upload && cd ../..
+
+mv "$tmp_dir/opencart2-plugin/crypay-opencart2.ocmod.zip" .
+mv "$tmp_dir/opencart2.3-plugin/crypay-opencart2_3.ocmod.zip" .
+mv "$tmp_dir/opencart3-plugin/crypay-opencart3.ocmod.zip" .
 rm -rf $tmp_dir
 
 echo ""
