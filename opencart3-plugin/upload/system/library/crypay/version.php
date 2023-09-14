@@ -1,0 +1,3 @@
+<?php
+
+define('CRYPAY_OPENCART_EXTENSION_VERSION', '3.0.0');
