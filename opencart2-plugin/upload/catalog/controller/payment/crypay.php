@@ -39,6 +39,7 @@ class ControllerPaymentCrypay extends Controller
             "variableSymbol" => (string)$order_info['order_id'],
             'failUrl' => $this->url->link('payment/crypay/cancel', '', true),
             'successUrl' => $this->url->link('payment/crypay/success', array('cg_token' => $token), true),
+            'timestamp' => time(),
         ];
 
         $jsonResponse = [
