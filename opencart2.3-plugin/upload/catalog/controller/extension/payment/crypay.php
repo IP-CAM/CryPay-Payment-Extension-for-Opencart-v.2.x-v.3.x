@@ -32,6 +32,9 @@ class ControllerExtensionPaymentCrypay extends Controller
 
         $token = md5(uniqid(rand(), true));
 
+        $firstName = html_entity_decode($order_info['payment_firstname'], ENT_QUOTES, 'UTF-8');
+        $lastName = html_entity_decode($order_info['payment_lastname'], ENT_QUOTES, 'UTF-8');
+
         $params = [
             "symbol" => $order_info['currency_code'],
             "amount" => (float)number_format($order_info['total'] * $this->currency->getvalue($order_info['currency_code']), 2, '.', ''),
@@ -40,6 +43,8 @@ class ControllerExtensionPaymentCrypay extends Controller
             'failUrl' => $this->url->link('extension/payment/crypay/cancel', '', true),
             'successUrl' => $this->url->link('extension/payment/crypay/success', array('cg_token' => $token), true),
             'timestamp' => time(),
+            'name' => $firstName . ' ' . $lastName,
+            'email' => $order_info['email'],
         ];
 
         $jsonResponse = [

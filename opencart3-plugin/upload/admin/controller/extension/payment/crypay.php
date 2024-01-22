@@ -68,7 +68,7 @@ class ControllerExtensionPaymentcrypay extends Controller
         $data['payment_crypay_api_secret'] = isset($this->request->post['payment_crypay_api_secret']) ?
             $this->request->post['payment_crypay_api_secret'] : $this->config->get('payment_crypay_api_secret');
 
-        $data['callback_url'] = $this->url->link('extension/payment/crypay/callback', [], true);
+        $data['callback_url'] = $this->getUrl('extension/payment/crypay/callback');
 
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
@@ -119,5 +119,13 @@ class ControllerExtensionPaymentcrypay extends Controller
         $this->load->model('extension/payment/crypay');
 
         $this->model_extension_payment_crypay->uninstall();
+    }
+
+    private function getUrl($route)
+    {
+        $protocol = ($_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+
+        return "$protocol://$host/index.php?route=$route";
     }
 }

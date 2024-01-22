@@ -58,12 +58,7 @@ class ControllerPaymentCrypay extends Controller
             }
         }
 
-        if (!empty($_SERVER['HTTPS']) && 'off' !== strtolower($_SERVER['HTTPS'])) {
-            $data['callback_url'] = 'https://' . $_SERVER['SERVER_NAME'] . '/index.php?route=extension/payment/crypay/callback';
-        } else {
-            $data['callback_url'] = HTTP_CATALOG . 'index.php?route=extension/payment/crypay/callback';
-        }
-
+        $data['callback_url'] = $this->getUrl('extension/payment/crypay/callback');
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
@@ -106,5 +101,13 @@ class ControllerPaymentCrypay extends Controller
         $this->load->model('extension/payment/crypay');
 
         $this->model_extension_payment_crypay->install();
+    }
+
+    private function getUrl($route)
+    {
+        $protocol = ($_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+
+        return "$protocol://$host/index.php?route=$route";
     }
 }
